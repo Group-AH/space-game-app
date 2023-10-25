@@ -7,7 +7,7 @@ namespace AstronautThirdPersonCamera
 
   public class AstronautThirdPersonCamera : MonoBehaviour
   {
-    private const float Y_ANGLE_MIN = 0.0f;
+    private const float Y_ANGLE_MIN = -30.0f;
     private const float Y_ANGLE_MAX = 80.0f;
 
     public Transform lookAt;
