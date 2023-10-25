@@ -4,5 +4,12 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/GameScene.unity
+    guid: d05578339aa3742c58bbdb7cb4bc8044
+  - enabled: 1
+    path: Assets/Scenes/InsideShipScene.unity
+    guid: 46b4c0fb2c3a44873861c3f5a82ea484
   m_configObjects: {}
+  m_UseUCBPForAssetBundles: 0
