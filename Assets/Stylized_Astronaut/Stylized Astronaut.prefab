@@ -114,9 +114,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 036f7dcabd9944343aec7d56821fdd7e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lookAt: {fileID: 5593195909017195343}
-  camTransform: {fileID: 5593195909017195343}
+  player: {fileID: 0}
   distance: 5
+  height: 2
+  mouseSensitivity: 4
 --- !u!1 &5593195909017292585
 GameObject:
   m_ObjectHideFlags: 0
@@ -839,7 +840,7 @@ GameObject:
   - component: {fileID: 5593195909017195379}
   - component: {fileID: 5593195909026790557}
   - component: {fileID: 5593195910366287653}
-  - component: {fileID: 5593195910366287650}
+  - component: {fileID: 629811005352197609}
   m_Layer: 0
   m_Name: Stylized Astronaut
   m_TagString: Untagged
@@ -913,7 +914,7 @@ CharacterController:
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
   m_Center: {x: 0, y: 1.25, z: -0.1}
---- !u!114 &5593195910366287650
+--- !u!114 &629811005352197609
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -925,8 +926,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 51c7b5abfedd4e741bef70712caf60fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 7
-  turnSpeed: 300
+  health: 0
+  maxHealth: 0
+  attackPoints: 0
+  healthBar: {fileID: 0}
+  forwardSpeed: 6
+  strafeSpeed: 4
   gravity: 20
 --- !u!1 &5593195909017292629
 GameObject:

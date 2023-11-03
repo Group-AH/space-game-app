@@ -7,22 +7,20 @@ namespace AstronautThirdPersonCamera
 
   public class AstronautThirdPersonCamera : MonoBehaviour
   {
-    private const float Y_ANGLE_MIN = -30.0f;
-    private const float Y_ANGLE_MAX = 80.0f;
+    public float Y_ANGLE_MIN = -10.0f;
+    public float Y_ANGLE_MAX = 80.0f;
 
-    public Transform lookAt;
-    public Transform camTransform;
+    public Transform player;
+    public Transform playerRoot;
+
     public float distance = 5.0f;
 
     private float currentX = 0.0f;
-    private float currentY = 45.0f;
-    public float mouseSensitivity = 2.5f;
-    private float sensitivityX = 20.0f;
-    private float sensitivityY = 20.0f;
+    private float currentY = 10.0f;
+    public float mouseSensitivity = 4f;
 
     private void Start()
     {
-        camTransform = transform;
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
     }
@@ -37,10 +35,18 @@ namespace AstronautThirdPersonCamera
 
     private void LateUpdate()
     {
-        Vector3 dir = new Vector3(0, 0, -distance);
+        Vector3 offset = new Vector3(0, 0, -distance);
         Quaternion rotation = Quaternion.Euler(currentY, currentX, 0);
-        camTransform.position = lookAt.position + rotation * dir;
-        camTransform.LookAt(lookAt.position);
+        
+        transform.position = player.position + rotation * offset;
+
+        transform.LookAt(player.position);
+
+        var lookPos = player.position - transform.position;
+        lookPos.y = 0;
+
+        playerRoot.rotation = Quaternion.LookRotation(lookPos);
+        
     }
   }
 }
