@@ -13,27 +13,31 @@ namespace Enemy
         
         public float health, maxHealth, moveSpeed;
         [SerializeField] EnemyHealthBar healthBar;
+        private Animator anim;
+        public float shootingRange = 10f;
+        public float chasingRange = 15f;
 
         // Start is called before the first frame update
         void Start()
         {
-            //anim = gameObject.GetComponentInChildren<Animator>();
+            anim = gameObject.GetComponent<Animator>();
             healthBar = GetComponentInChildren<EnemyHealthBar>();
         }
 
-        // Update is called once per frame
-        void Update()
-        {
-            if (Input.GetKeyDown(KeyCode.Space))
-            {  
-                TakeDamage(1);
+        void Update(){
+            if (health <= 0){
+                Die();
             }
-           
         }
 
-        public void TakeDamage(float damage) { 
+        public void TakeDamageEnemy(float damage) { 
             health-=damage;
             healthBar.UpdateHealthBar(health, maxHealth);
+        
+        }
+
+        void Die(){
+            Destroy(gameObject);
         }
 
     

@@ -19,12 +19,12 @@ namespace AstronautPlayer
 		private Vector3 moveDirection = Vector3.zero;
 		public float gravity = 20.0f;
 
-        public void TakeDamage()
-        {
-            // Use your own damage handling code, or this example one.
-            health -= Mathf.Min(Random.value, health / 4f);
-            healthBar.UpdateHealthBar();
-        }
+	
+
+		void TakeDamagePlayer(float damage){
+			health-=damage;
+			healthBar.UpdateHealthBar();
+		}
 
         void Start () {
 			controller = GetComponent <CharacterController>();
@@ -48,6 +48,7 @@ namespace AstronautPlayer
                  + transform.right * Input.GetAxis("Horizontal") * strafeSpeed;
 			}
 
+<<<<<<< Updated upstream
             moveDirection.y -= gravity * Time.deltaTime;
             controller.Move(moveDirection * Time.deltaTime);
 			
@@ -57,6 +58,14 @@ namespace AstronautPlayer
 				Debug.Log(" Pressed");
 				TakeDamage();
             }
+=======
+			float turn = Input.GetAxis("Horizontal");
+			transform.Rotate(0, turn * turnSpeed * Time.deltaTime, 0);
+			controller.Move(moveDirection * Time.deltaTime);
+			moveDirection.y -= gravity * Time.deltaTime;
+
+
+>>>>>>> Stashed changes
         }
 	}
 }

@@ -495,6 +495,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 289111660}
   m_CullTransparentMesh: 1
+--- !u!1 &483709822 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5593195909017292627, guid: 4be7a99d429a19840a38df28f88a8680, type: 3}
+  m_PrefabInstance: {fileID: 801282571}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &505173437
 GameObject:
   m_ObjectHideFlags: 0
@@ -776,6 +781,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 23c1ce4fb46143f46bc5cb5224c934f6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &661172432 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 100112, guid: e5836d050fdb354479bcd0d285bf2f22, type: 3}
+  m_PrefabInstance: {fileID: 1475215920}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &696108791
 GameObject:
   m_ObjectHideFlags: 0
@@ -800,8 +810,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 696108791}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0, y: 1.28, z: 0.22}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0, y: 1.2800007, z: 0.857}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -875,6 +885,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Stylized Astronaut
       objectReference: {fileID: 0}
+    - target: {fileID: 5593195909017292627, guid: 4be7a99d429a19840a38df28f88a8680, type: 3}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
     - target: {fileID: 5593195910366287650, guid: 4be7a99d429a19840a38df28f88a8680, type: 3}
       propertyPath: health
       value: 100
@@ -922,6 +936,9 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 696108792}
     m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 5593195909017292627, guid: 4be7a99d429a19840a38df28f88a8680, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 801282576}
     - targetCorrespondingSourceObject: {fileID: 5592274848502135240, guid: 4be7a99d429a19840a38df28f88a8680, type: 3}
       insertIndex: -1
       addedObject: {fileID: 611963277}
@@ -936,6 +953,30 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5593195909017195343, guid: 4be7a99d429a19840a38df28f88a8680, type: 3}
   m_PrefabInstance: {fileID: 801282571}
   m_PrefabAsset: {fileID: 0}
+<<<<<<< Updated upstream
+=======
+  m_GameObject: {fileID: 483709822}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 51c7b5abfedd4e741bef70712caf60fd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &801282576
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 483709822}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c53c689e16ac63b4d8b48a8578b683be, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bulletSpawnPoint: {fileID: 696108792}
+  bulletPrefab: {fileID: 4077041704611391509, guid: c44d47fcf73934b46aa847d7e0235905, type: 3}
+  bulletSpeed: 10
+>>>>>>> Stashed changes
 --- !u!1 &829316167
 GameObject:
   m_ObjectHideFlags: 0
@@ -1258,6 +1299,31 @@ MonoBehaviour:
   maxHealth: 100
   moveSpeed: 2
   healthBar: {fileID: 0}
+  shootingRange: 10
+  chasingRange: 15
+--- !u!136 &1253716086
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1253716078}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.48072815
+  m_Height: 1.8807812
+  m_Direction: 1
+  m_Center: {x: 0.006500244, y: 1.3375196, z: 0.16374207}
 --- !u!1 &1359946558
 GameObject:
   m_ObjectHideFlags: 0
@@ -1594,6 +1660,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: alien character
       objectReference: {fileID: 0}
+    - target: {fileID: 100116, guid: e5836d050fdb354479bcd0d285bf2f22, type: 3}
+      propertyPath: m_TagString
+      value: Enemy
+      objectReference: {fileID: 0}
     - target: {fileID: 400116, guid: e5836d050fdb354479bcd0d285bf2f22, type: 3}
       propertyPath: m_LocalPosition.x
       value: 505
@@ -1655,6 +1725,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 100116, guid: e5836d050fdb354479bcd0d285bf2f22, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1253716081}
+    - targetCorrespondingSourceObject: {fileID: 100116, guid: e5836d050fdb354479bcd0d285bf2f22, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1253716086}
     - targetCorrespondingSourceObject: {fileID: 100112, guid: e5836d050fdb354479bcd0d285bf2f22, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1475215923}
@@ -1664,26 +1737,22 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 400112, guid: e5836d050fdb354479bcd0d285bf2f22, type: 3}
   m_PrefabInstance: {fileID: 1475215920}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1475215922 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 100112, guid: e5836d050fdb354479bcd0d285bf2f22, type: 3}
-  m_PrefabInstance: {fileID: 1475215920}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &1475215923
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1475215922}
+  m_GameObject: {fileID: 661172432}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c53c689e16ac63b4d8b48a8578b683be, type: 3}
+  m_Script: {fileID: 11500000, guid: 864742570d1010047b195994b850bd29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletSpawnPoint: {fileID: 0}
-  bulletPrefab: {fileID: 0}
+  bulletSpawnPoint: {fileID: 2015700082}
+  bulletPrefab: {fileID: 4077041704611391509, guid: 0d37a51a72134cc408bc9d11908020ed, type: 3}
   bulletSpeed: 10
+  Player: {fileID: 801282572}
 --- !u!1 &1493893196
 GameObject:
   m_ObjectHideFlags: 0
@@ -2150,7 +2219,7 @@ Transform:
   m_GameObject: {fileID: 2015700081}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 74.8, y: 0, z: 69.6}
+  m_LocalPosition: {x: 70.7, y: -0, z: 74.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
