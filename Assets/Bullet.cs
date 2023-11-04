@@ -17,9 +17,9 @@ public class Bullet : MonoBehaviour
     // Update is called once per frame
     void OnCollisionEnter(Collision collision)
     {
+        Destroy(gameObject);
         if (collision.gameObject.CompareTag("Enemy"))
-        {
-            Destroy(gameObject);
+        {  
             collision.gameObject.SendMessage("TakeDamageEnemy", damage);
         }
     }

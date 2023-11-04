@@ -26,6 +26,7 @@ namespace AstronautPlayer
 			healthBar.UpdateHealthBar();
 		}
 
+
         void Start () {
 			controller = GetComponent <CharacterController>();
 			anim = gameObject.GetComponentInChildren<Animator>();
@@ -48,24 +49,17 @@ namespace AstronautPlayer
                  + transform.right * Input.GetAxis("Horizontal") * strafeSpeed;
 			}
 
-<<<<<<< Updated upstream
             moveDirection.y -= gravity * Time.deltaTime;
             controller.Move(moveDirection * Time.deltaTime);
 			
-            // Example so we can test the Health Bar functionality
-            if (Input.GetKeyDown(KeyCode.Space))
-            {
-				Debug.Log(" Pressed");
-				TakeDamage();
+			if (health <= 0){
+                Die();
             }
-=======
-			float turn = Input.GetAxis("Horizontal");
-			transform.Rotate(0, turn * turnSpeed * Time.deltaTime, 0);
-			controller.Move(moveDirection * Time.deltaTime);
-			moveDirection.y -= gravity * Time.deltaTime;
+			
+        }
 
-
->>>>>>> Stashed changes
+		void Die(){
+            Destroy(gameObject);
         }
 	}
 }

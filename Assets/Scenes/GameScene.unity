@@ -825,6 +825,22 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 629811005352197609, guid: 4be7a99d429a19840a38df28f88a8680, type: 3}
+      propertyPath: health
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 629811005352197609, guid: 4be7a99d429a19840a38df28f88a8680, type: 3}
+      propertyPath: healthBar
+      value: 
+      objectReference: {fileID: 1391594302}
+    - target: {fileID: 629811005352197609, guid: 4be7a99d429a19840a38df28f88a8680, type: 3}
+      propertyPath: maxHealth
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 629811005352197609, guid: 4be7a99d429a19840a38df28f88a8680, type: 3}
+      propertyPath: attackPoints
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 5486556345440822109, guid: 4be7a99d429a19840a38df28f88a8680, type: 3}
       propertyPath: player
       value: 
@@ -953,14 +969,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5593195909017195343, guid: 4be7a99d429a19840a38df28f88a8680, type: 3}
   m_PrefabInstance: {fileID: 801282571}
   m_PrefabAsset: {fileID: 0}
-<<<<<<< Updated upstream
-=======
-  m_GameObject: {fileID: 483709822}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 51c7b5abfedd4e741bef70712caf60fd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &801282576
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -976,7 +984,17 @@ MonoBehaviour:
   bulletSpawnPoint: {fileID: 696108792}
   bulletPrefab: {fileID: 4077041704611391509, guid: c44d47fcf73934b46aa847d7e0235905, type: 3}
   bulletSpeed: 10
->>>>>>> Stashed changes
+--- !u!114 &801282577 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 629811005352197609, guid: 4be7a99d429a19840a38df28f88a8680, type: 3}
+  m_PrefabInstance: {fileID: 801282571}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 483709822}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 51c7b5abfedd4e741bef70712caf60fd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &829316167
 GameObject:
   m_ObjectHideFlags: 0
@@ -1558,7 +1576,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e105052df28e17443af4c8a3e91e7350, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
+  player: {fileID: 801282577}
 --- !u!114 &1391594303
 MonoBehaviour:
   m_ObjectHideFlags: 0

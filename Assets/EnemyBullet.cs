@@ -23,6 +23,7 @@ public class EnemyBullet : MonoBehaviour
             collision.gameObject.SendMessage("TakeDamagePlayer", damage);
         
             Debug.Log("HIT PLAYER");
+            //
         }
     
 
