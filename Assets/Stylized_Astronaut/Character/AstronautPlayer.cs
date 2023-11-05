@@ -33,15 +33,39 @@ namespace AstronautPlayer
 		}
 
 		void Update (){
-			if (Input.GetAxis("Vertical") > 0) {
-				anim.SetInteger("AnimationPar", 1);
-			}  else {
-				anim.SetInteger("AnimationPar", 0);
+			if (Input.GetKey(KeyCode.W)) {
+				anim.SetBool("Walk", true);
+			}  
+			else {
+				anim.SetBool("Walk", false);
+			}
+
+			if (Input.GetKey(KeyCode.W) && Input.GetKey(KeyCode.LeftShift))
+			{
+				anim.SetBool("Run",true);
+			}
+			else
+			{
+				anim.SetBool("Run",false);
 			}
 
 			if(controller.isGrounded){
                 if (Input.GetKeyDown(KeyCode.Space)) {
                     // jump
+                    anim.SetBool("jumpstart",true);
+                    if (anim.GetBool("jumpstart") == true)
+                    {
+	                    anim.SetBool("jumploop", true);
+                    }
+
+                    if (anim.GetBool("jumploop") == true)
+                    {
+	                    anim.SetBool("jumpend",true);
+                    }
+                }
+                else
+                {
+	                anim.SetBool("jumpstart",false);
                 }
 
                 // move
