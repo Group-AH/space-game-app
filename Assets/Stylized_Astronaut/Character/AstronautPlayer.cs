@@ -19,12 +19,13 @@ namespace AstronautPlayer
 		private Vector3 moveDirection = Vector3.zero;
 		public float gravity = 20.0f;
 
-        public void TakeDamage()
-        {
-            // Use your own damage handling code, or this example one.
-            health -= Mathf.Min(Random.value, health / 4f);
-            healthBar.UpdateHealthBar();
-        }
+	
+
+		void TakeDamagePlayer(float damage){
+			health-=damage;
+			healthBar.UpdateHealthBar();
+		}
+
 
         void Start () {
 			controller = GetComponent <CharacterController>();
@@ -33,9 +34,9 @@ namespace AstronautPlayer
 
 		void Update (){
 			if (Input.GetAxis("Vertical") > 0) {
-				anim.SetInteger ("AnimationPar", 1);
+				anim.SetInteger("AnimationPar", 1);
 			}  else {
-				anim.SetInteger ("AnimationPar", 0);
+				anim.SetInteger("AnimationPar", 0);
 			}
 
 			if(controller.isGrounded){
@@ -51,12 +52,14 @@ namespace AstronautPlayer
             moveDirection.y -= gravity * Time.deltaTime;
             controller.Move(moveDirection * Time.deltaTime);
 			
-            // Example so we can test the Health Bar functionality
-            if (Input.GetKeyDown(KeyCode.Space))
-            {
-				Debug.Log(" Pressed");
-				TakeDamage();
+			if (health <= 0){
+                Die();
             }
+			
+        }
+
+		void Die(){
+            Destroy(gameObject);
         }
 	}
 }
