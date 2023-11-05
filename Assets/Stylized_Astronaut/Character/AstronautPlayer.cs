@@ -34,9 +34,9 @@ namespace AstronautPlayer
 
 		void Update (){
 			if (Input.GetAxis("Vertical") > 0) {
-				anim.SetInteger ("AnimationPar", 1);
+				anim.SetInteger("AnimationPar", 1);
 			}  else {
-				anim.SetInteger ("AnimationPar", 0);
+				anim.SetInteger("AnimationPar", 0);
 			}
 
 			if(controller.isGrounded){

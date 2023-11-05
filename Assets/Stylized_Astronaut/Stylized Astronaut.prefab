@@ -1,5 +1,36 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &2833584111671490320
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6364746219523958758}
+  m_Layer: 0
+  m_Name: bulletSpawnPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6364746219523958758
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2833584111671490320}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0, y: 1.2800007, z: 0.857}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5593195909017195379}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &5592274848502135240
 GameObject:
   m_ObjectHideFlags: 0
@@ -79,8 +110,8 @@ Camera:
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
   m_TargetEye: 3
-  m_HDR: 1
-  m_AllowMSAA: 1
+  m_HDR: 0
+  m_AllowMSAA: 0
   m_AllowDynamicResolution: 0
   m_ForceIntoRT: 0
   m_OcclusionCulling: 1
@@ -114,9 +145,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 036f7dcabd9944343aec7d56821fdd7e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
-  distance: 5
-  height: 2
+  Y_ANGLE_MIN: -10
+  Y_ANGLE_MAX: 80
+  player: {fileID: 5593195909017195343}
+  playerRoot: {fileID: 5593195909017195379}
+  distance: 6
   mouseSensitivity: 4
 --- !u!1 &5593195909017292585
 GameObject:
@@ -841,9 +874,10 @@ GameObject:
   - component: {fileID: 5593195909026790557}
   - component: {fileID: 5593195910366287653}
   - component: {fileID: 629811005352197609}
+  - component: {fileID: 9171247168742858404}
   m_Layer: 0
   m_Name: Stylized Astronaut
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -864,6 +898,7 @@ Transform:
   - {fileID: 5593195909017195377}
   - {fileID: 5593195909017195343}
   - {fileID: 5588582362184778252}
+  - {fileID: 6364746219523958758}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &5593195909026790557
@@ -926,13 +961,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 51c7b5abfedd4e741bef70712caf60fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 0
-  maxHealth: 0
-  attackPoints: 0
+  health: 100
+  maxHealth: 100
+  attackPoints: 10
   healthBar: {fileID: 0}
   forwardSpeed: 6
   strafeSpeed: 4
   gravity: 20
+--- !u!114 &9171247168742858404
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5593195909017292627}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c53c689e16ac63b4d8b48a8578b683be, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bulletSpawnPoint: {fileID: 6364746219523958758}
+  bulletPrefab: {fileID: 4077041704611391509, guid: c44d47fcf73934b46aa847d7e0235905, type: 3}
+  bulletSpeed: 10
 --- !u!1 &5593195909017292629
 GameObject:
   m_ObjectHideFlags: 0
