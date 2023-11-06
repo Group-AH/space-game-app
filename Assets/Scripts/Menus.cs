@@ -66,19 +66,19 @@ public class Menus : MonoBehaviour
 
     public void GoToMainMenu() {
         Resume();
-
+  
         gameOverMenu.SetActive(false);
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
 
-        SceneManager.LoadScene(2);
+        SceneManager.LoadScene(SceneSwitch.MENU_SCENE);
     }
 
     public void RestartGame() {
         Resume();
         gameOverMenu.SetActive(false);
 
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene(SceneSwitch.GAME_OUTSIDE_SCENE);
     }
 
 

@@ -10,7 +10,7 @@ public class ButtonActions : MonoBehaviour
     }
 
     public void playGame() {  
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene(SceneSwitch.GAME_OUTSIDE_SCENE);
     }
 
 

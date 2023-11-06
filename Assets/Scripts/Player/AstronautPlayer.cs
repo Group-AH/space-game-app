@@ -18,6 +18,7 @@ namespace AstronautPlayer
         private Vector3 moveDirection = Vector3.zero;
         public float gravity = 20.0f;
 
+        private bool gameOver;
         public Menus gameOverMenu;
 
         void TakeDamagePlayer(float damage)
@@ -29,14 +30,16 @@ namespace AstronautPlayer
 
         void Start()
         {
-            Time.timeScale = 1;
             controller = GetComponent<CharacterController>();
             anim = gameObject.GetComponentInChildren<Animator>();
+
+            gameOver = false;
         }
 
         void Update()
         {
             if (Menus.gamePaused) return;
+            if (gameOver) return;
 
             if (Input.GetAxis("Vertical") > 0)
             {
@@ -64,7 +67,9 @@ namespace AstronautPlayer
 
             if (health <= 0)
             {
+                gameOver = true;
                 Die();
+                Debug.Log("PLAYER DEAD");
             }
 
         }
