@@ -44,9 +44,11 @@ namespace AstronautPlayer
             if (gameOver) return;
 
             // if (Input.GetAxis("Vertical") != 0 || Input.GetAxis("Horizontal") != 0)
+            
             if (Input.GetKey(KeyCode.W))
             {
-                anim.SetBool("Walk", true);
+                // anim.SetBool("Walk", true);
+                anim.SetInteger("AnimationPar", 1);
 
                 if (Input.GetKey(KeyCode.LeftShift))
                 {
@@ -60,6 +62,7 @@ namespace AstronautPlayer
             else
             {
                 anim.SetBool("Walk", false);
+                anim.SetInteger("AnimationPar", 0);
             }
 
             if (controller.isGrounded)
@@ -87,7 +90,7 @@ namespace AstronautPlayer
                 // move
                 moveDirection = transform.forward * Input.GetAxis("Vertical") * forwardSpeed
                  + transform.right * Input.GetAxis("Horizontal") * strafeSpeed
-                 + jump.y;
+                 + jump;
             }
 
             moveDirection.y -= gravity * Time.deltaTime;

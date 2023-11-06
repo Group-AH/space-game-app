@@ -15,6 +15,10 @@ public class Menus : MonoBehaviour
     public GameObject gameOverMenu;
 
     void Update() {
+        if (Input.GetKeyDown(KeyCode.Q)) {
+            Debug.Log("gamePaused: " + gamePaused + ", showPauseMenu: " + showPauseMenu);
+        }
+        
         if (showGameOverMenu) return;
 
         if (Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(KeyCode.P)) {
