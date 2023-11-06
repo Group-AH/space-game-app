@@ -16,7 +16,9 @@ namespace AstronautPlayer
         public float strafeSpeed = 4.0f;
 
         private Vector3 moveDirection = Vector3.zero;
+        private Vector3 jump = Vector3.zero;
         public float gravity = 20.0f;
+        public float jumpAcc = 40.0f;
 
         private bool gameOver;
         public Menus gameOverMenu;
@@ -41,13 +43,23 @@ namespace AstronautPlayer
             if (Menus.gamePaused) return;
             if (gameOver) return;
 
-            if (Input.GetAxis("Vertical") > 0)
+            // if (Input.GetAxis("Vertical") != 0 || Input.GetAxis("Horizontal") != 0)
+            if (Input.GetKey(KeyCode.W))
             {
-                anim.SetInteger("AnimationPar", 1);
+                anim.SetBool("Walk", true);
+
+                if (Input.GetKey(KeyCode.LeftShift))
+                {
+                    anim.SetBool("Run", true);
+                }
+                else
+                {
+                    anim.SetBool("Run", false);
+                }
             }
             else
             {
-                anim.SetInteger("AnimationPar", 0);
+                anim.SetBool("Walk", false);
             }
 
             if (controller.isGrounded)
@@ -55,11 +67,27 @@ namespace AstronautPlayer
                 if (Input.GetKeyDown(KeyCode.Space))
                 {
                     // jump
+                    anim.SetBool("jumpstart", true);
+                    if (anim.GetBool("jumpstart") == true)
+                    {
+                        anim.SetBool("jumploop", true);
+                        jump.y = jumpAcc;
+                    }
+
+                    if (anim.GetBool("jumploop") == true)
+                    {
+                        anim.SetBool("jumpend", true);
+                    }
+                }
+                else
+                {
+                    anim.SetBool("jumpstart", false);
                 }
 
                 // move
                 moveDirection = transform.forward * Input.GetAxis("Vertical") * forwardSpeed
-                 + transform.right * Input.GetAxis("Horizontal") * strafeSpeed;
+                 + transform.right * Input.GetAxis("Horizontal") * strafeSpeed
+                 + jump.y;
             }
 
             moveDirection.y -= gravity * Time.deltaTime;
