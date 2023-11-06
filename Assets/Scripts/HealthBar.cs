@@ -8,7 +8,7 @@ public class HealthBar : MonoBehaviour
     public AstronautPlayer.AstronautPlayer player;
     private Slider slider;
 
-    private void Start()
+    void Start()
     {
         slider = GetComponent<Slider>();
     }

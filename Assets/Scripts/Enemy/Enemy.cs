@@ -9,8 +9,6 @@ namespace Enemy
 {
     public class Enemy : MonoBehaviour
     {
-
-        
         public float health, maxHealth, moveSpeed;
         [SerializeField] EnemyHealthBar healthBar;
         private Animator anim;

@@ -13,6 +13,8 @@ public class EnemyGun : MonoBehaviour
     
 
     void Update() {
+        if (Menus.gamePaused) return;
+
         float range = transform.parent.GetComponent<Enemy.Enemy>().shootingRange;
         float distance = Vector3.Distance(transform.position, Player.position);
         if (distance <= range  && Time.time >= fireTime){

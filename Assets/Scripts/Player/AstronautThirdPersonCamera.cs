@@ -23,14 +23,16 @@ namespace AstronautThirdPersonCamera
     private Vector3 relativePos;
     public float distanceOffset = 0;
 
-    private void Start()
+    void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
     }
 
-    private void Update()
+    void LateUpdate()
     {
+        if (Menus.gamePaused) return;
+
         currentX += Input.GetAxis("Mouse X") * mouseSensitivity;
         currentY -= Input.GetAxis("Mouse Y") * mouseSensitivity;
 
@@ -42,7 +44,6 @@ namespace AstronautThirdPersonCamera
             RaycastHit hit;
             if (Physics.Raycast(player.position, relativePos, out hit, distance + 0.5f))
             {
-                Debug.DrawLine(player.position, hit.point);
                 distanceOffset = distance - hit.distance + 1f;
                 distanceOffset = Mathf.Clamp(distanceOffset, 0, distance);
             }
@@ -51,10 +52,7 @@ namespace AstronautThirdPersonCamera
                 distanceOffset = 0;
             }
         }
-    }
-
-    private void LateUpdate()
-    {        
+        
         Vector3 offset = new Vector3(0, 0, -distance + distanceOffset);
         Quaternion rotation = Quaternion.Euler(currentY, currentX, 0);
         
