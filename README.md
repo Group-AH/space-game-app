@@ -11,3 +11,5 @@ https://assetstore.unity.com/packages/3d/characters/creatures/alien-insect-chara
 https://assetstore.unity.com/packages/3d/characters/humanoids/sci-fi/stylized-astronaut-114298
 
 https://assetstore.unity.com/packages/3d/environments/sci-fi/sci-fi-old-rusty-props-pbr-200267
+
+https://assetstore.unity.com/packages/3d/environments/sci-fi/sci-fi-battery-pack-free-19738

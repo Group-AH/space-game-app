@@ -1,6 +1,7 @@
 using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
+using System.Collections.Generic;
 
 namespace AstronautPlayer
 {
@@ -22,6 +23,8 @@ namespace AstronautPlayer
 
         private bool gameOver;
         public Menus gameOverMenu;
+
+        public List<string> droppedItems = new List<string>();
 
         void TakeDamagePlayer(float damage)
         {
@@ -109,5 +112,23 @@ namespace AstronautPlayer
         {
             gameOverMenu.ShowGameOver();
         }
+
+        private void OnTriggerEnter(Collider other)
+        {
+            if (other.gameObject.CompareTag("drop"))
+            {
+                UnityEngine.Debug.Log("Item collided with 'drop' object.");
+                GameObject item = other.gameObject;
+                string itemName = item.name;
+                const string cloneSuffix = "(Clone)";
+                if (itemName.EndsWith(cloneSuffix))
+                {
+                    itemName = itemName.Substring(0, itemName.Length - cloneSuffix.Length);
+                }
+                droppedItems.Add(itemName);
+                Destroy(item);
+            }
+        }
+
     }
 }

@@ -15,6 +15,7 @@ namespace Enemy
         public float shootingRange = 10f;
         public float chasingRange = 15f;
         private GameObject player;
+        public GameObject dropItem;
 
         // Start is called before the first frame update
         void Start()
@@ -52,8 +53,11 @@ namespace Enemy
 
         void Die(){
             Destroy(gameObject);
+            float randomNumber = UnityEngine.Random.value;
+            if (randomNumber < 0.7f){
+                Instantiate(dropItem, transform.position, Quaternion.identity);
+            }
         }
-
 
 
     
