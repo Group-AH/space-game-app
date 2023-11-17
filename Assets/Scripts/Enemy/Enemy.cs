@@ -14,18 +14,28 @@ namespace Enemy
         private Animator anim;
         public float shootingRange = 10f;
         public float chasingRange = 15f;
+        private GameObject player;
 
         // Start is called before the first frame update
         void Start()
         {
             anim = gameObject.GetComponent<Animator>();
             healthBar = GetComponentInChildren<EnemyHealthBar>();
+            player = GameObject.FindGameObjectWithTag("Player");
         }
 
         void Update(){
             if (health <= 0){
                 Die();
             }
+
+            float playerDistance = Vector3.Distance(transform.position, player.transform.position);
+
+            if (playerDistance <= chasingRange  && playerDistance > shootingRange)
+            {
+                Chase();
+            }
+
         }
 
         public void TakeDamageEnemy(float damage) { 
@@ -34,9 +44,17 @@ namespace Enemy
         
         }
 
+        void Chase()
+        {
+            transform.LookAt(player.transform);
+            transform.Translate(Vector3.forward * moveSpeed * Time.deltaTime);
+        }
+
         void Die(){
             Destroy(gameObject);
         }
+
+
 
     
     }
