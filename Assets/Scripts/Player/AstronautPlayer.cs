@@ -24,6 +24,8 @@ namespace AstronautPlayer
         private bool gameOver;
         public Menus gameOverMenu;
 
+        
+
         public List<string> droppedItems = new List<string>();
 
         void TakeDamagePlayer(float damage)
@@ -61,9 +63,12 @@ namespace AstronautPlayer
                 {
                     anim.SetBool("Run", false);
                 }
+
+               
             }
             else
             {
+                
                 anim.SetBool("Walk", false);
                 anim.SetInteger("AnimationPar", 0);
             }
