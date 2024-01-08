@@ -80,7 +80,7 @@ public class Menus : MonoBehaviour
     public void RestartGame() {
         Resume();
         gameOverMenu.SetActive(false);
-        GameManager.resetGame();
+        GameManager.Instance.resetGame();
         SceneManager.LoadScene(SceneSwitch.GAME_OUTSIDE_SCENE);
     }
 
