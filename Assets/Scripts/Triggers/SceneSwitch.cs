@@ -17,8 +17,13 @@ public class SceneSwitch : MonoBehaviour {
     public const int GAME_INSIDE_SCENE = 2;
 
     public Scenes sceneTarget;
+    public Vector3 playerNewPos;
 
     void OnTriggerEnter(Collider other) {
-        SceneManager.LoadScene((int) sceneTarget);
+        if (other.tag == "Player") {
+            GameManager.Instance.playerPosition = playerNewPos;
+            SceneManager.LoadScene((int) sceneTarget);
+
+        }
     }
 }

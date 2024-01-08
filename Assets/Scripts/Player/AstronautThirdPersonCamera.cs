@@ -2,11 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace AstronautThirdPersonCamera
-{
 
-  public class AstronautThirdPersonCamera : MonoBehaviour
-  {
+public class AstronautThirdPersonCamera : MonoBehaviour
+{
     public const float Y_ANGLE_MIN = -80.0f;
     public const float Y_ANGLE_MAX = 80.0f;
 
@@ -66,5 +64,5 @@ namespace AstronautThirdPersonCamera
         playerRoot.rotation = Quaternion.LookRotation(lookPos);
         
     }
-  }
 }
+

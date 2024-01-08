@@ -5,6 +5,7 @@ using UnityEngine;
 public class DoorTrigger : MonoBehaviour
 {
     public Animator target;
+    
     void OnTriggerEnter(Collider other) {
 
         target.SetBool("character_nearby", true);

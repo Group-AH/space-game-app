@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Enemy
   - drop
+  - hint1
   layers:
   - Default
   - TransparentFX

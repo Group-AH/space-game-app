@@ -15,10 +15,7 @@ public class Menus : MonoBehaviour
     public GameObject gameOverMenu;
 
     void Update() {
-        if (Input.GetKeyDown(KeyCode.Q)) {
-            Debug.Log("gamePaused: " + gamePaused + ", showPauseMenu: " + showPauseMenu);
-        }
-        
+
         if (showGameOverMenu) return;
 
         if (Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(KeyCode.P)) {
@@ -53,6 +50,8 @@ public class Menus : MonoBehaviour
     }
 
     public void ShowGameOver() {
+        if (showGameOverMenu) return;
+        
         gamePaused = true;
         showGameOverMenu = true;
 
@@ -81,7 +80,7 @@ public class Menus : MonoBehaviour
     public void RestartGame() {
         Resume();
         gameOverMenu.SetActive(false);
-
+        GameManager.resetGame();
         SceneManager.LoadScene(SceneSwitch.GAME_OUTSIDE_SCENE);
     }
 
